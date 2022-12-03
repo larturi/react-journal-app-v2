@@ -12,6 +12,7 @@
   "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
+    "object-curly-spacing": ["error", "always"],
     "react/jsx-uses-react": ["off"],
     "react/react-in-jsx-scope": ["off"],
     "react/jsx-props-no-spreading": ["warn"],

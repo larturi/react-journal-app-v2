@@ -1,10 +1,10 @@
-import { AppRouter } from './router/AppRouter'
-import { AppTheme } from './theme'
+import AppRouter from './router/AppRouter'
+import AppTheme from './theme/AppTheme'
 
-export const JournalApp = () => {
+export default function JournalApp() {
   return (
     <AppTheme>
-        <AppRouter />
+      <AppRouter />
     </AppTheme>
   )
 }
