@@ -3,7 +3,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import { purpleTheme } from './purpleTheme'
 
 // eslint-disable-next-line react/prop-types
-function AppTheme({ children }) {
+const AppTheme = ({ children }) => {
   return (
     <ThemeProvider theme={purpleTheme}>
       <CssBaseline />

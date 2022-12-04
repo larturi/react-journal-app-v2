@@ -1,10 +1,12 @@
-import JournalLayout from '../layout/JournalLayout'
+import { JournalLayout } from '../layout'
 import { NothingSelectedView } from '../views'
 
-export default function JournalPage() {
+const JournalPage = () => {
   return (
     <JournalLayout>
       <NothingSelectedView />
     </JournalLayout>
   )
 }
+
+export default JournalPage

@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import JournalPage from '../pages/JournalPage'
 
-export default function JournalRoutes() {
+const JournalRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<JournalPage />} />
@@ -9,3 +9,5 @@ export default function JournalRoutes() {
     </Routes>
   )
 }
+
+export default JournalRoutes

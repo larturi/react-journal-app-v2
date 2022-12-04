@@ -14,7 +14,7 @@ import {
 } from '@mui/material'
 import PropTypes from 'prop-types'
 
-export default function SideBar({ drawerWidth = 240 }) {
+export const SideBar = ({ drawerWidth = 240 }) => {
   return (
     <Box
       component="nav"

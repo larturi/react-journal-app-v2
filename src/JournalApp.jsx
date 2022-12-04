@@ -1,10 +1,12 @@
 import AppRouter from './router/AppRouter'
 import AppTheme from './theme/AppTheme'
 
-export default function JournalApp() {
+const JournalApp = () => {
   return (
     <AppTheme>
       <AppRouter />
     </AppTheme>
   )
 }
+
+export default JournalApp

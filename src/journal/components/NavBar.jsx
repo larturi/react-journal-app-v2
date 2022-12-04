@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { LogoutOutlined, MenuOutlined } from '@mui/icons-material'
 import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material'
 
-export default function NavBar({ drawerWidth = 240 }) {
+export const NavBar = ({ drawerWidth = 240 }) => {
   return (
     <AppBar
       position="fixed"

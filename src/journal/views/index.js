@@ -1,1 +1,2 @@
-export { default as NothingSelectedView } from './NothingSelectedView'
+export * from './NothingSelectedView'
+export * from './NoteView'

@@ -1,7 +1,7 @@
 import { StarOutline } from '@mui/icons-material'
 import { Grid, Typography } from '@mui/material'
 
-export default function NothingSelectedView() {
+export const NothingSelectedView = () => {
   return (
     <Grid
       container
