@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Grid, Typography } from '@mui/material'
 
-export default function AuthLayout({ children, title = '' }) {
+export const AuthLayout = ({ children, title = '' }) => {
   return (
     <Grid
       container
@@ -35,3 +35,5 @@ AuthLayout.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
 }
+
+export default AuthLayout

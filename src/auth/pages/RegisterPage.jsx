@@ -1,9 +1,9 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Google } from '@mui/icons-material'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
-import AuthLayout from '../layout/AuthLayout'
+import { AuthLayout } from '../layout/AuthLayout'
 
-export default function RegisterPage() {
+export const RegisterPage = () => {
   return (
     <AuthLayout title="Regirsto">
       <form>
@@ -64,3 +64,5 @@ export default function RegisterPage() {
     </AuthLayout>
   )
 }
+
+export default RegisterPage

@@ -25,6 +25,8 @@
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ]
+    ],
+    "no-console": "off",
+    "no-param-reassign": 0
   }
 }

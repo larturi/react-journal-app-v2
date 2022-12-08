@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { AUTH_NOT_AUTHENTICATED, AUTH_CHECKING } from '../../types'
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    status: 'checking', // 'not-authenticated', 'authenticated'
+    status: AUTH_NOT_AUTHENTICATED,
     uuid: null,
     email: null,
     displayName: null,
@@ -18,7 +19,7 @@ export const authSlice = createSlice({
       return { state, payload }
     },
     checkingCredentials: (state) => {
-      return { state }
+      state.status = AUTH_CHECKING
     },
   },
 })
