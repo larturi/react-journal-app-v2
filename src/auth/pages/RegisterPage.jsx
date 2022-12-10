@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { Button, Grid, Link, TextField, Typography } from '@mui/material'
 import { AuthLayout } from '../layout/AuthLayout'
@@ -5,17 +6,35 @@ import { useForm } from '../../hooks/useForm'
 
 const formData = {
   email: 'lea@gmail.com',
-  password: '123123123',
+  password: 'wwwwww',
   displayName: 'Leandro Arturi',
 }
 
+const formValidations = {
+  email: [(value) => value.includes('@'), 'Ingrese un correo valido'],
+  password: [
+    (value) => value.length >= 6,
+    'El password debe tener 6 o mas caracteres',
+  ],
+  displayName: [(value) => value.length >= 1, 'El nombre es obligatorio'],
+}
+
 export const RegisterPage = () => {
-  const { displayName, email, password, onInputChange, formState } =
-    useForm(formData)
+  const [formSubmitted, setFormSubmitted] = useState(false)
+
+  const {
+    displayName,
+    email,
+    password,
+    onInputChange,
+    displayNameValid,
+    emailValid,
+    passwordValid,
+  } = useForm(formData, formValidations)
 
   const onSubmit = (event) => {
     event.preventDefault()
-    console.log(formState)
+    setFormSubmitted(true)
   }
 
   return (
@@ -36,6 +55,8 @@ export const RegisterPage = () => {
               name="displayName"
               value={displayName}
               onChange={onInputChange}
+              error={!!displayNameValid && formSubmitted}
+              helperText={displayNameValid}
             />
           </Grid>
 
@@ -48,6 +69,8 @@ export const RegisterPage = () => {
               name="email"
               value={email}
               onChange={onInputChange}
+              error={!!emailValid && formSubmitted}
+              helperText={emailValid}
             />
           </Grid>
 
@@ -60,6 +83,8 @@ export const RegisterPage = () => {
               name="password"
               value={password}
               onChange={onInputChange}
+              error={!!passwordValid && formSubmitted}
+              helperText={passwordValid}
             />
           </Grid>
 
