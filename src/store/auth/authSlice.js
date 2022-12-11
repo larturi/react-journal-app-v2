@@ -8,7 +8,7 @@ import {
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    status: AUTH_NOT_AUTHENTICATED,
+    status: AUTH_CHECKING,
     uid: null,
     email: null,
     displayName: null,

@@ -1,5 +1,4 @@
 /* eslint-disable no-extra-boolean-cast */
-/* eslint-disable consistent-return */
 /* eslint-disable no-undef */
 
 import { useState, useMemo } from 'react'
