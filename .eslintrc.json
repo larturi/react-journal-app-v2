@@ -30,6 +30,7 @@
     "no-param-reassign": 0,
     "no-use-before-define": ["error", { "variables": false }],
     "max-len": ["error", { "code": 80 }],
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "react/require-default-props": "off"
   }
 }
