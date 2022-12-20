@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { Toolbar, Box } from '@mui/material'
 import { NavBar, SideBar } from '../components'
 
-const drawerWidth = 240
+const drawerWidth = 350
 
 export const JournalLayout = ({ children }) => {
   return (

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { SidebarItem } from '.'
 
-export const SideBar = ({ drawerWidth = 240 }) => {
+export const SideBar = ({ drawerWidth = 350 }) => {
   const { displayName } = useSelector((state) => state.auth)
   const { notes } = useSelector((state) => state.journal)
 

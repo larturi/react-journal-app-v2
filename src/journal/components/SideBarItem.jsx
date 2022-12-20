@@ -14,8 +14,12 @@ import { setActiveNote } from '../../store/journal/journalSlice'
 
 export const SidebarItem = ({ title, body, id, date, imageUrls = [] }) => {
   const newTitle = useMemo(() => {
-    return title.length > 17 ? `${title.substring(0, 17)}...` : title
+    return title.length > 30 ? `${title.substring(0, 30)}...` : title
   }, [title])
+
+  const newBody = useMemo(() => {
+    return body.length > 75 ? `${body.substring(0, 75)}...` : body
+  }, [body])
 
   const dispatch = useDispatch()
 
@@ -31,7 +35,7 @@ export const SidebarItem = ({ title, body, id, date, imageUrls = [] }) => {
         </ListItemIcon>
         <Grid container>
           <ListItemText primary={`${newTitle}`} sx={{ width: '100%' }} />
-          <ListItemText secondary={body} />
+          <ListItemText secondary={newBody} />
         </Grid>
       </ListItemButton>
     </ListItem>
