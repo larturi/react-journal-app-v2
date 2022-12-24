@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 import { useForm } from '../../hooks/useForm'
 import ImageGallery from '../components/ImageGallery'
 import { setActiveNote } from '../../store/journal/journalSlice'
-import { startSaveNote } from '../../store/journal/thunks'
+import { startSaveNote, startUploadingFiles } from '../../store/journal/thunks'
 
 export const NoteView = () => {
   const dispatch = useDispatch()
@@ -40,7 +40,7 @@ export const NoteView = () => {
   const onFileInputChange = ({ target }) => {
     // eslint-disable-next-line no-useless-return
     if (target.files === 0) return
-    // dispatch(startUploadingFiles(target.files))
+    dispatch(startUploadingFiles(target.files))
   }
 
   return (
@@ -106,7 +106,7 @@ export const NoteView = () => {
         />
       </Grid>
 
-      <ImageGallery />
+      <ImageGallery images={activeNote.imageUrls} />
     </Grid>
   )
 }
