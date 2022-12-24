@@ -1,7 +1,7 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { SaveOutlined } from '@mui/icons-material'
-import { Button, Grid, TextField, Typography } from '@mui/material'
+import { SaveOutlined, UploadOutlined } from '@mui/icons-material'
+import { Button, Grid, IconButton, TextField, Typography } from '@mui/material'
 import Swal from 'sweetalert2'
 import { useForm } from '../../hooks/useForm'
 import ImageGallery from '../components/ImageGallery'
@@ -11,7 +11,9 @@ import { startSaveNote } from '../../store/journal/thunks'
 export const NoteView = () => {
   const dispatch = useDispatch()
 
-  const { activeNote, messageSaved } = useSelector((state) => state.journal)
+  const { activeNote, messageSaved, isSaving } = useSelector(
+    (state) => state.journal
+  )
   const { body, title, date, onInputChange, formState } = useForm(activeNote)
 
   const dateString = useMemo(() => {
@@ -29,8 +31,16 @@ export const NoteView = () => {
     }
   }, [messageSaved])
 
+  const fileInputRef = useRef()
+
   const onSaveNote = () => {
     dispatch(startSaveNote())
+  }
+
+  const onFileInputChange = ({ target }) => {
+    // eslint-disable-next-line no-useless-return
+    if (target.files === 0) return
+    // dispatch(startUploadingFiles(target.files))
   }
 
   return (
@@ -48,6 +58,22 @@ export const NoteView = () => {
         </Typography>
       </Grid>
       <Grid item>
+        <input
+          type="file"
+          style={{ display: 'none' }}
+          multiple
+          ref={fileInputRef}
+          onChange={onFileInputChange}
+        />
+
+        <IconButton
+          color="primary"
+          disabled={isSaving}
+          onClick={() => fileInputRef.current.click()}
+        >
+          <UploadOutlined />
+        </IconButton>
+
         <Button onClick={onSaveNote} color="primary" sx={{ padding: 2 }}>
           <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
           Guardar
