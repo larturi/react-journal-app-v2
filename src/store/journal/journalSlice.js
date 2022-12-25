@@ -7,8 +7,12 @@ export const journalSlice = createSlice({
     messageSaved: '',
     notes: [],
     activeNote: null,
+    showSidebar: true,
   },
   reducers: {
+    toggleSidebar: (state) => {
+      state.showSidebar = !state.showSidebar
+    },
     savingNewNote: (state) => {
       state.isSaving = true
     },
@@ -19,6 +23,7 @@ export const journalSlice = createSlice({
     setActiveNote: (state, action) => {
       state.messageSaved = ''
       state.activeNote = action.payload
+      state.showSidebar = false
     },
     setNotes: (state, action) => {
       state.notes = action.payload
@@ -58,6 +63,7 @@ export const journalSlice = createSlice({
 })
 
 export const {
+  toggleSidebar,
   savingNewNote,
   addNewEmptyNote,
   setActiveNote,

@@ -8,11 +8,12 @@ import { SidebarItem } from '.'
 
 export const SideBar = ({ drawerWidth = 350 }) => {
   const { displayName } = useSelector((state) => state.auth)
-  const { notes } = useSelector((state) => state.journal)
+  const { notes, showSidebar } = useSelector((state) => state.journal)
 
   return (
     <Box
       component="nav"
+      className={showSidebar ? 'showSidebar' : 'hideSidebar'}
       sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
     >
       <Drawer

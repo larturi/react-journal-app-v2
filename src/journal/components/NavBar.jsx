@@ -3,12 +3,17 @@ import { useDispatch } from 'react-redux'
 import { LogoutOutlined, MenuOutlined } from '@mui/icons-material'
 import { AppBar, Grid, IconButton, Toolbar, Typography } from '@mui/material'
 import { startLogout } from '../../store/auth/thunks'
+import { toggleSidebar } from '../../store/journal/journalSlice'
 
 export const NavBar = ({ drawerWidth = 240 }) => {
   const dispatch = useDispatch()
 
   const onLogout = () => {
     dispatch(startLogout())
+  }
+
+  const onClickToggleSidebar = () => {
+    dispatch(toggleSidebar())
   }
 
   return (
@@ -21,6 +26,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
     >
       <Toolbar>
         <IconButton
+          onClick={onClickToggleSidebar}
           color="inherit"
           edge="start"
           sx={{ mr: 2, display: { sm: 'none' } }}
